@@ -58,8 +58,21 @@ In total there are **4 classes**:
   sudo python3 setup.py install
   ```
 * Jupyter
-* Scipy 
-* Sklearn
+  ```
+  pip install jupyter
+  ``` 
+* Scipy (1.1.0)
+  ```
+  pip install scipy
+  ```
+* Sklearn (0.0)
+  ```
+  pip install sklearn
+  ```
+* Scikit-Learn (0.24.dev0)
+  ```
+  pip install scikit-learn=0.24.dev0
+  ```
 
 # Pipeline
 explaining the pipeline
