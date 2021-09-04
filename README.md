@@ -2,10 +2,7 @@
 This project is inspired by DJI's Gesture Piloting Project. This uses Nvidia's [trt_pose](https://github.com/NVIDIA-AI-IOT/trt_pose) project for real-time pose estimation and using those key-points a Sklearn Classifiers has been train to predict between various classes.
 <p align="center"><img src="http://yuml.me/diagram/nofunky/class/[Image/Video{bg:white}]-->[Pose Estimator {bg:cornsilk}]-->[Data-Points{bg:white}]-->[Classfier{bg:cornsilk}]-->[Result{bg:red}]" ></p>
 
-# Demo
-<p align="center">
-  <img src="images/pose.gif" alt="animated" />
-</p>
+**Note: This project was implemented and tested on Jetson Nano.**
 
 ## Introduction
 In total there are **4 classes**: 
@@ -30,3 +27,7 @@ In total there are **4 classes**:
   <img src="https://github.com/harnoors/Pose-Classification/blob/main/images/BHU/IMG_7599.JPEG" alt="animated" width="432" height="223">
 </p>
 
+# Demo
+<p align="center">
+  <img src="images/pose.gif" alt="animated" />
+</p>
