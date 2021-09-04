@@ -31,3 +31,37 @@ In total there are **4 classes**:
 <p align="center">
   <img src="images/pose.gif" alt="animated" />
 </p>
+
+# Getting Started
+
+### 1. install Dependencies 
+
+
+* Install PyTorch and Torchvision. To do this on NVIDIA Jetson, Its recommended following [this](https://forums.developer.nvidia.com/t/pytorch-for-jetson-version-1-9-0-now-available/72048)
+
+* Install torch2trt
+  ```
+  git clone https://github.com/NVIDIA-AI-IOT/torch2trt
+  cd torch2trt
+  sudo python3 setup.py install --plugins
+
+  ```
+* Install other miscellaneous packages
+  ```
+  sudo pip3 install tqdm cython pycocotools
+  sudo apt-get install python3-matplotlib
+  ```
+* Install trt_pose
+  ```
+  git clone https://github.com/NVIDIA-AI-IOT/trt_pose
+  cd trt_pose
+  sudo python3 setup.py install
+  ```
+* Jupyter
+* Scipy 
+* Sklearn
+
+# Pipeline
+explaining the pipeline
+
+# 
