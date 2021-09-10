@@ -221,13 +221,13 @@ In total there are **4 classes**:
 3. CSI camera:
   - ```python3 CSI.py```
    
-3. Video (pre-recorded):
+4. Video (pre-recorded):
   - ```python3 detect_video.py```
   - NOTE: change the directory of the video in line 166 ```video = 'source_of_your_video' ``` 
    
 
 
 # Pipeline
-explaining the pipeline
+TODO
+THIS PART WILL EXPLIAN HOW TO COLLECT DATA TO TRAIN YOUR OWN MODEL AND ADD ANOTHER CLASSES IF YOU WISH TO.
 
-# 
