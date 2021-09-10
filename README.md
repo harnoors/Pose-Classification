@@ -219,11 +219,11 @@ In total there are **4 classes**:
       - This could be used to print the classification results coming in from the publisher. Additionaly this could also be updated to publish commands to drone. 
        
 3. CSI camera:
-  - ```python3 CSI.py```
+    - ```python3 CSI.py```
    
 4. Video (pre-recorded):
-  - ```python3 detect_video.py```
-  - NOTE: change the directory of the video in line 166 ```video = 'source_of_your_video' ``` 
+    - ```python3 detect_video.py```
+    - NOTE: change the directory of the video in line 166 ```video = 'source_of_your_video' ``` 
    
 
 
