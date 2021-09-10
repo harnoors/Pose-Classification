@@ -103,6 +103,10 @@ In total there are **4 classes**:
     - Run this Script here.
     - https://github.com/jkjung-avt/jetson_nano/blob/master/install_opencv-3.4.6.sh
  
+* ROS2 for ubuntu 18.04 on Jetson Nano:
+  - I had to do ```pip install lark``` before running the above script.
+  - Run the script here: https://github.com/jetsonhacks/installROS2
+  - After runnning the script ROS2 got installed in not so usual loaction, for mw the directory was ```/opt/ros/foxy/install/setup.bash```
 * Pytorch + trt_pose
   Follow the tutorials here
   PyTorch : https://spyjetson.blogspot.com/2019/10/jetsonnano-human-pose-estimation-using_16.html   
@@ -199,6 +203,30 @@ In total there are **4 classes**:
            ```
          - The cl_callback() function can be updated to make decesions or possibly publish some commands to drone/rover. 
      
+# Running the project
+1. Clone the Repo: 
+    ```
+    git clone https://github.com/harnoors/Pose-Classification.git
+    cd Pose-Classification
+    ```
+2. Running the ROS2 Node:
+    - ```python3 publisher.py```
+         
+          Note: This will take a while to start the first time because the
+                pose_detection trt model gets optimized during the first run. 
+    - After the camera preview starts, open another terminal to see what data is being published ```ros2 topic list```
+    - ```pyhton3 subscriber.py```
+      - This could be used to print the classification results coming in from the publisher. Additionaly this could also be updated to publish commands to drone. 
+       
+3. CSI camera:
+  - ```python3 CSI.py```
+   
+3. Video (pre-recorded):
+  - ```python3 detect_video.py```
+  - NOTE: change the directory of the video in line 166 ```video = 'source_of_your_video' ``` 
+   
+
+
 # Pipeline
 explaining the pipeline
 
