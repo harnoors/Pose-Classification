@@ -155,7 +155,50 @@ In total there are **4 classes**:
         python3 setup.py install
         ```  
 # Explaining All the files
+* **CSI.py**: This python file takes in feed from the CSI camera, displays and saves the results as output.mp4
+* **detect_video.py**: This python file takes in a pre-recorder video, displays and saves the results as output.mp4
+  - The source of the video can be updated in line 166 ```video = 'source_of_your_video' ``` 
+* **ROS2 setup**:
+  -  publisher.py
+    -  This python file takes in feed from the CSI camera, displays, saves (results as output.mp4), and publishes the results at ```pose_classification``` channel in  Float32Array.
+        - The results are publised an array in a format: ```[predicted_class, probability_of_that_prediction]```
+        - If you wish to change how (format) or add in what interval the results are published, that can be done near line 137 of  ```publisher.py```  
+          - ```minimal_publisher.send_cl([float(results), float(resultsP[0][results])])``` 
+    -  This piece of code is a snip from ```publisher.py``` and is used to publish classification results.
+        - ``` 
+          class MinimalPublisher(Node):
+            def __init__(self):
+                super().__init__('sphero_node')
+                self.publish_cl = self.create_publisher(Float32MultiArray, 'pose_classification', 10)
+
+            # send_cl() will take a data and send it to pose_classification channel
+            def send_cl(self, data):
+                msg = Float32MultiArray()
+                msg.data = data
+                self.publish_cl.publish(msg)
+                if debug: self.get_logger().info('Publishing: "%s"' % msg.data)
+            ```  
     
+  -  subscriber.py
+    -  This python file subscribes to the ```pose_classification``` channel and simply prints out the results. 
+        - ```print("the predicted class is: ", int(result),"  with probability:", resultPr)``` 
+    -  This piece of code is a snip from ```subscriber.py```
+        -  ```
+           class MinimalSubscriber(Node):
+              def __init__(self):
+                  super().__init__('minimal_subscriber')
+                  self.subscription = self.create_subscription(Float32MultiArray,'pose_classification',self.cl_callback, 10)
+                  self.subscription
+
+              async def cl_callback(self, msg):
+                  msg = msg.data
+                  result = int(msg[0])
+                  resultPr = float(msg[1])
+                  ## Use result and probability to make decisions 
+                  print("the predicted class is: ", int(result),"  with probability:", resultPr)
+           ```
+         - The cl_callback() function can be updated to make decesions or possibly publish some commands to drone/rover. 
+     
 # Pipeline
 explaining the pipeline
 
